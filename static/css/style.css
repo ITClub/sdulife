@@ -1,0 +1,29 @@
+html {
+  position:absolute;
+  left:15%;
+  right:15%;
+  background: url(/static/img/sdu.jpg) no-repeat center center fixed; 
+  -webkit-background-size: 70%;
+  -moz-background-size: 70%;
+  -o-background-size: 70%;
+  background-size: 70%;
+}
+
+#left_panel {
+	position:absolute;
+	height:100%;
+	top:0%;
+	left:0%;
+	-webkit-filter:brightness(0.2);
+	-moz-filter:brightness(0.2);
+	-o-filter:brightness(0.2);
+	filter:brightness(0.2);
+}
+
+#header_panel {
+	position:absolute;
+	top:0%;
+	right:0%;
+	width:80%;
+	height:15%;
+}

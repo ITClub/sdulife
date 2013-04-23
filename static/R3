@@ -1,0 +1,94 @@
+no service password-encryption 
+! 
+hostname R3 
+! 
+security passwords min-length 6 
+enable secret ciscoccna 
+! 
+no aaa new-model 
+! 
+ip cef 
+! 
+no ip domain lookup 
+! 
+key chain RIP_KEY 
+ key 1 
+  key-string cisco 
+username R1 password 0 ciscoccna 
+username ccna password 0 ciscoccna 
+All contents are Copyright © 1992–2007 Cisco Systems, Inc. All rights reserved. This document is Cisco Public Information.  Page 6 of 12 
+CCNA Exploration 
+Accessing the WAN: Network Troubleshooting    Lab 8.5.1: Troubleshooting Enterprise Networks 1 
+        
+ 
+! 
+interface FastEthernet0/1 
+ no shutdown 
+! 
+interface FastEthernet0/1.11 
+ encapsulation dot1Q 11 
+ ip address 192.168.11.3 255.255.255.0 
+ no snmp trap link-status 
+! 
+interface FastEthernet0/1.30 
+ encapsulation dot1Q 30 
+ ip address 192.168.30.1 255.255.255.0  
+ ip access-group Anti-spoofing in 
+ no snmp trap link-status 
+! 
+! 
+interface Serial0/0/0 
+ ip address 10.3.3.2 255.255.255.252 
+ encapsulation ppp 
+ clockrate 125000 
+ ppp authentication chap 
+! 
+interface Serial0/0/1 
+ ip address 10.2.2.2 255.255.255.252 
+! 
+router rip 
+ version 2 
+ passive-interface default 
+ no passive-interface FastEthernet0/0.11 
+ no passive-interface FastEthernet0/0.30 
+ no passive-interface Serial0/0/0 
+ no passive-interface Serial0/0/1 
+ network 10.0.0.0 
+ network 192.168.11.0 
+ network 192.168.30.0 
+ no auto-summary 
+! 
+ip classless 
+! 
+ip http server 
+! 
+ip access-list standard Anti-spoofing 
+ permit 192.168.30.0 0.0.0.255 
+ deny  any 
+ip access-list standard VTY 
+ permit 10.0.0.0 0.255.255.255 
+ permit 192.168.10.0 0.0.0.255 
+ permit 192.168.11.0 0.0.0.255 
+ permit 192.168.20.0 0.0.0.255 
+ permit 192.168.30.0 0.0.0.255 
+! 
+control-plane 
+! 
+line con 0 
+ exec-timeout 0 0 
+ logging synchronous 
+All contents are Copyright © 1992–2007 Cisco Systems, Inc. All rights reserved. This document is Cisco Public Information.  Page 7 of 12 
+CCNA Exploration 
+Accessing the WAN: Network Troubleshooting    Lab 8.5.1: Troubleshooting Enterprise Networks 1 
+        
+ 
+line aux 0 
+ exec-timeout 15 0 
+ logging synchronous 
+line vty 0 4 
+ access-class VTY in 
+ exec-timeout 15 0 
+ logging synchronous 
+ login local 
+! 
+end 

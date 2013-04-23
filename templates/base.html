@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<html>
+<head>
+	<title>SDU Social</title>
+	<link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+<body>
+	<img id="header_panel" src="{%static "img/header_panel.png" %}">
+	<img id="left_panel" src="{%static "img/left_panel.png" %}">
+	{% block reg %}
+	{% endblock %}
+</body>
+</html>
+	

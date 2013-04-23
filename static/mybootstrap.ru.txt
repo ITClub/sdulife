@@ -1,0 +1,2 @@
+Данная версия Bootstrap скачана с сайта http://mybootstrap.ru
+Все свои вопросы по движку задавайте на нашем форуме: http://mybootstrap.ru/forum/
