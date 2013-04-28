@@ -4,7 +4,7 @@
 {% load staticfiles %}
 <link href="{% static "css/reg.css" %}" rel="stylesheet">
 
-<form class="form-container">
+<form class="form-container" action="/register" method="POST">
 <div><h2>REGISTRATION</h2></div>
 		<div class="group">
 			<label for="name">Name:</label>
@@ -25,6 +25,10 @@
 		<div class="group">
 			<label for="password">Password:</label>
 			<input class="form-field" id="password" type="text" name="password" />
+		</div>
+		<div class="group">
+			<label for="password">Confirm password:</label>
+			<input class="form-field" id="password" type="text" name="password_confirm" />
 		</div>
 
 	<div class="submit-container">
