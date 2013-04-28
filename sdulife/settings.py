@@ -109,6 +109,8 @@ ROOT_URLCONF = 'sdulife.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'sdulife.wsgi.application'
 
+AUTH_USER_MODEL = 'sdulife.SDUdent'
+
 TEMPLATE_DIRS = (
 	'/home/kuanysh/webapps/sdulife/sdulife/templates',
 	'C:/Kunya/Projects/sdulife/templates',

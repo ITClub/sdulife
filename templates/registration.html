@@ -4,31 +4,34 @@
 {% load staticfiles %}
 <link href="{% static "css/reg.css" %}" rel="stylesheet">
 
-<form class="form-container" action="/register" method="POST">
+<form class="form-container" action="/" method="POST">
+{{ form.non_field_errors }}
 <div><h2>REGISTRATION</h2></div>
 		<div class="group">
-			<label for="name">Name:</label>
-			<input class="form-field" id="name" type="text" name="name" />
+			<label for="id_first_name">Name:</label>
+			{{ form.first_name }}
 		</div>
 		<div class="group">
-			<label for="surname">Surname:</label>
-			<input class="form-field" id="surname" type="text" name="surname" />
+			<label for="id_last_name">Surame:</label>
+			{{ form.last_name }}
 		</div>
 		<div class="group">
-			<label for="email">Email:</label>
-			<input class="form-field" id="email" type="text" name="email" />
+			<label for="id_email">Email:</label>
+			{{ form.email }}
 		</div>
 		<div class="group">
-			<label for="phone_number">Phone number:</label>
-			<input class="form-field" id="phone_number" type="text" name="phone_number" />
+			<label for="id_phone_number">Phone number:</label>
+			{{ form.phone_number }}
 		</div>
 		<div class="group">
-			<label for="password">Password:</label>
-			<input class="form-field" id="password" type="text" name="password" />
+			{{ form.password1.errors }}
+			<label for="id_password1">Password:</label>
+			{{ form.password1 }}
 		</div>
 		<div class="group">
-			<label for="password">Confirm password:</label>
-			<input class="form-field" id="password" type="text" name="password_confirm" />
+			{{ form.non_field_errors }}
+			<label for="id_password2">Confirm password:</label>
+			{{ form.password2 }}
 		</div>
 
 	<div class="submit-container">
