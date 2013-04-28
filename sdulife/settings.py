@@ -69,6 +69,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
+	'/home/kuanysh/webapps/sdulife/sdulife/static',
 	'C:/Kunya/Projects/sdulife/static',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
@@ -109,6 +110,7 @@ ROOT_URLCONF = 'sdulife.urls'
 WSGI_APPLICATION = 'sdulife.wsgi.application'
 
 TEMPLATE_DIRS = (
+	'/home/kuanysh/webapps/sdulife/sdulife/templates',
 	'C:/Kunya/Projects/sdulife/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
