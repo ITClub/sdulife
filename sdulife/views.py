@@ -9,7 +9,8 @@ def reg(request):
 	if (request.method == 'POST'):
 		form = SDUdentForm(request.POST)
 		if form.is_valid():
-			return HttpResponse('thanks')
+			form.save()
+			return render(request, 'registration_success.html')
 
 	else:
 		form = SDUdentForm()
